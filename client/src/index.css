@@ -145,3 +145,9 @@ code {
   border-bottom: 10px solid yellow !important;
   margin: 10px !important;
 }
+
+@media only screen and (max-width: 600px) {
+  .usernav {
+    display: none;
+  }
+}

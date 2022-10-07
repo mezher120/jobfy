@@ -15,7 +15,7 @@ function Home() {
 
   return (
     <DefaultLayout>
-      <Row gutter={[16,16]}>
+      <Row gutter={16}>
         {jobs && jobs.map(e => {
           return (<Col lg={12} sm={24}>
             <div className='box boxshadow'>
@@ -23,12 +23,12 @@ function Home() {
               <p>{e.company}</p>
               <hr></hr>
               <p>{e.smallDescription}</p>
-              <div className='horizontal'>
+              <div className='flex'>
               <p>Salary: <b>{e.salaryFrom} to {e.salaryTo}</b></p>
               <p>Experience: {e.experience} Years</p>
               </div>
               <hr></hr>
-              <div className='horizontal'>
+              <div className='flex justify-content-between'>
                 {e.id}
                 <Link to={`/jobs/${e._id}`}><Button>View</Button></Link>
                 <p>Posted: {e.createdAt}</p>

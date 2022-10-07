@@ -10,7 +10,7 @@ import {
 
   } from '@ant-design/icons';
   import { Layout, Menu } from 'antd';
-  import React, { useState } from 'react';
+  import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Filter from './Filter';
 
@@ -23,6 +23,18 @@ function onLogOut(params) {  // para el logout lo removes del local storage al u
   localStorage.removeItem('user');
   window.location.href='/login';
 }
+
+function resize() {
+  if (window.screen.width < 600) {
+    setCollapsed(true);
+  } else {
+    setCollapsed(false);
+  } 
+}
+
+useEffect(() => {
+  resize();
+}, []);
 
 const userName = JSON.parse(localStorage.getItem('user')).username;
 
@@ -90,7 +102,7 @@ const userName = JSON.parse(localStorage.getItem('user')).username;
               <div>
                 <Filter />
               </div>
-              <div className='usernav flex'>
+              <div className='usernav flex' >
                 <UserOutlined /><h5><b>{userName}</b></h5>
               </div>
             </div>
