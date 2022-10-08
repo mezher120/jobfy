@@ -22,4 +22,9 @@ if (process.env.NODE_ENV === "production") {    // para heroku
 }
 
 
-app.listen(port, () => console.log("server prendido"))
+app.listen(port, (err) =>  {
+    if (err) {
+        throw err;
+    }
+    console.log("server prendido")
+})
